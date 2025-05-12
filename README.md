@@ -21,10 +21,9 @@ The goal of this project is to assess the impact of quantization on large langua
 - Response Quality: Quantization introduced trade-offs, with factual prompts retaining reasonable accuracy, while creative tasks (e.g., poem generation) showed degradation, particularly with GGUF Q8_0 and GPTQ.
 
 
-### Installation
+ ### Installation
 
 1. Clone the repository:
-   ```bash
    git clone https://github.com/Avinashhmavi/Quantization-using-different-methods.git
    ```
 
