@@ -1,27 +1,27 @@
 ### Quantization using Different Models.
 
 ```markdown
-# Quantization of LLaMA-3.2-1B and GPT-2 Models
+ Quantization of LLaMA-3.2-1B and GPT-2 Models
 
 This repository contains the implementation and evaluation of quantization techniques applied to the LLaMA-3.2-1B and GPT-2 models to optimize memory usage, inference speed, and performance. The methods explored include AWQ, GGUF (Q4_K_M and Q8_0), and GPTQ, with detailed comparisons of memory efficiency, inference time, and response quality.
 
-## Project Overview
+Project Overview
 
 The goal of this project is to assess the impact of quantization on large language models, specifically LLaMA-3.2-1B and GPT-2, in terms of resource efficiency and output quality. The experiments were conducted on CUDA-enabled GPUs (T4) using Python, PyTorch, and libraries such as Hugging Face Transformers, AutoAWQ, AutoGPTQ, and llama.cpp.
 
-### Quantization Methods
+Quantization Methods
 - AWQ (Activation-aware Weight Quantization)**: Applied to LLaMA-3.2-1B with 4-bit precision, achieving ~60% memory reduction.
 - GGUF (Q4_K_M and Q8_0)**: Converted LLaMA-3.2-1B to GGUF format and quantized to Q4_K_M (~50% size reduction) and Q8_0 (~30% size reduction).
 - GPTQ: Applied to both LLaMA-3.2-1B (~45.24% memory reduction) and GPT-2 (~60.7% memory reduction) with 4-bit precision.
 - LLM.int8()**: Tested on GPT-2 with mixed-precision quantization, achieving minimal accuracy loss (MSE: 1.5778e-05).
 
-### Key Findings
+Key Findings
 - Memory Efficiency: All quantization methods significantly reduced memory usage, with AWQ and GPTQ showing the largest reductions for LLaMA-3.2-1B and GPT-2, respectively.
 - Inference Time: Quantized models (especially GGUF Q4_K_M) were faster than their FP16 counterparts, but GPTQ models showed slower inference times compared to originals.
 - Response Quality: Quantization introduced trade-offs, with factual prompts retaining reasonable accuracy, while creative tasks (e.g., poem generation) showed degradation, particularly with GGUF Q8_0 and GPTQ.
 
 
-## Installation
+ Installation
 
 1. Clone the repository:
    ```bash
