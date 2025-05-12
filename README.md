@@ -1,16 +1,5 @@
 ### Quantization using Different Models.
 
-Quantization of LLaMA-3.2-1B and GPT-2 Models
-This repository contains the implementation and evaluation of quantization techniques applied to the LLaMA-3.2-1B and GPT-2 models to optimize memory usage, inference speed, and performance. The methods explored include AWQ, GGUF (Q4_K_M and Q8_0), and GPTQ, with detailed comparisons of memory efficiency, inference time, and response quality.
-Project Overview
-The goal of this project is to assess the impact of quantization on large language models, specifically LLaMA-3.2-1B and GPT-2, in terms of resource efficiency and output quality. The experiments were conducted on CUDA-enabled GPUs (T4) using Python, PyTorch, and libraries such as Hugging Face Transformers, AutoAWQ, AutoGPTQ, and llama.cpp.
-Quantization Methods
-
-AWQ (Activation-aware Weight Quantization): Applied to LLaMA-3.2-1B with 4-bit precision, achieving ~60% memory reduction.
-GGUF (Q4_K_M and Q8_0): Converted LLaMA-3.2-1B to GGUF format and quantized to Q4_K_M (50% size reduction) and Q8_0 (30% size reduction).
-GPTQ: Applied to both LLaMA-3.2-1B (45.24% memory reduction) and GPT-2 (60.7% memory reduction) with 4-bit precision.
-LLM.int8(): Tested on GPT-2 with mixed-precision quantization, achieving minimal accuracy loss (MSE: 1.5778e-05).
-
 ```markdown
 # Quantization of LLaMA-3.2-1B and GPT-2 Models
 
@@ -21,26 +10,16 @@ This repository contains the implementation and evaluation of quantization techn
 The goal of this project is to assess the impact of quantization on large language models, specifically LLaMA-3.2-1B and GPT-2, in terms of resource efficiency and output quality. The experiments were conducted on CUDA-enabled GPUs (T4) using Python, PyTorch, and libraries such as Hugging Face Transformers, AutoAWQ, AutoGPTQ, and llama.cpp.
 
 ### Quantization Methods
-- **AWQ (Activation-aware Weight Quantization)**: Applied to LLaMA-3.2-1B with 4-bit precision, achieving ~60% memory reduction.
-- **GGUF (Q4_K_M and Q8_0)**: Converted LLaMA-3.2-1B to GGUF format and quantized to Q4_K_M (~50% size reduction) and Q8_0 (~30% size reduction).
-- **GPTQ**: Applied to both LLaMA-3.2-1B (~45.24% memory reduction) and GPT-2 (~60.7% memory reduction) with 4-bit precision.
-- **LLM.int8()**: Tested on GPT-2 with mixed-precision quantization, achieving minimal accuracy loss (MSE: 1.5778e-05).
+- AWQ (Activation-aware Weight Quantization)**: Applied to LLaMA-3.2-1B with 4-bit precision, achieving ~60% memory reduction.
+- GGUF (Q4_K_M and Q8_0)**: Converted LLaMA-3.2-1B to GGUF format and quantized to Q4_K_M (~50% size reduction) and Q8_0 (~30% size reduction).
+- GPTQ: Applied to both LLaMA-3.2-1B (~45.24% memory reduction) and GPT-2 (~60.7% memory reduction) with 4-bit precision.
+- LLM.int8()**: Tested on GPT-2 with mixed-precision quantization, achieving minimal accuracy loss (MSE: 1.5778e-05).
 
 ### Key Findings
-- **Memory Efficiency**: All quantization methods significantly reduced memory usage, with AWQ and GPTQ showing the largest reductions for LLaMA-3.2-1B and GPT-2, respectively.
-- **Inference Time**: Quantized models (especially GGUF Q4_K_M) were faster than their FP16 counterparts, but GPTQ models showed slower inference times compared to originals.
-- **Response Quality**: Quantization introduced trade-offs, with factual prompts retaining reasonable accuracy, while creative tasks (e.g., poem generation) showed degradation, particularly with GGUF Q8_0 and GPTQ.
+- Memory Efficiency: All quantization methods significantly reduced memory usage, with AWQ and GPTQ showing the largest reductions for LLaMA-3.2-1B and GPT-2, respectively.
+- Inference Time: Quantized models (especially GGUF Q4_K_M) were faster than their FP16 counterparts, but GPTQ models showed slower inference times compared to originals.
+- Response Quality: Quantization introduced trade-offs, with factual prompts retaining reasonable accuracy, while creative tasks (e.g., poem generation) showed degradation, particularly with GGUF Q8_0 and GPTQ.
 
-## Repository Structure
-```
-├── scripts/                # Python scripts for quantization and evaluation
-│   ├── awq_quantization.py # AWQ quantization for LLaMA-3.2-1B
-│   ├── gguf_conversion.py  # GGUF conversion and quantization
-│   ├── gptq_quantization.py # GPTQ quantization for LLaMA-3.2-1B and GPT-2
-│   └── evaluation.py       # Inference testing and metrics collection
-├── models/                 # Saved quantized models (not included in repo due to size)
-└── README.md               # This file
-```
 
 ## Installation
 
@@ -140,6 +119,4 @@ python scripts/evaluation.py
 - Hugging Face for providing model weights and datasets.
 - llama.cpp for GGUF conversion and quantization tools.
 - AutoAWQ and AutoGPTQ libraries for efficient quantization.
-
-
 ```
