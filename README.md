@@ -117,4 +117,3 @@ python scripts/evaluation.py
 - Hugging Face for providing model weights and datasets.
 - llama.cpp for GGUF conversion and quantization tools.
 - AutoAWQ and AutoGPTQ libraries for efficient quantization.
-```
