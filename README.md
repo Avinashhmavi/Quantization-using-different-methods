@@ -54,12 +54,12 @@ python scripts/awq_quantization.py
 - Applies 4-bit AWQ quantization with 256 C4 dataset samples for calibration.
 - Saves the quantized model to `models/llama-awq`.
 
-### 2. GGUF Quantization (LLaMA-3.2-1B)
+### 2. GGUF Quantization (Qwen3,LLaMA-3.2-1B)
 Convert and quantize the model:
 ```bash
 python scripts/gguf_conversion.py
 ```
-- Converts LLaMA-3.2-1B to GGUF FP16 format.
+- Converts Qwen3 and LLaMA-3.2-1B to GGUF FP16 format.
 - Quantizes to Q4_K_M and Q8_0 using llama.cpp.
 - Outputs models to `models/llama-gguf`.
 
