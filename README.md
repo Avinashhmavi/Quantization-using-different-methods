@@ -26,7 +26,7 @@ The goal of this project is to assess the impact of quantization on large langua
 1. Clone the repository:
    git clone https://github.com/Avinashhmavi/Quantization-using-different-methods.git
 2. find the model in Hugging Face:
-   Hugging Face – avinashhm/qwen3-1.7b-gguf-q4_0![image](https://github.com/user-attachments/assets/f3ac010d-6b19-41f9-ada7-25760eef3be6)
+   git clone https://huggingface.co/avinashhm/qwen3-1.7b-gguf-q4_0
    ```
 
 2. Install dependencies:
