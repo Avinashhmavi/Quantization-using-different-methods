@@ -38,8 +38,8 @@ bitsandbytes: Quantization for memory efficiency.
 unsloth: Optimized model handling for GRPO.
 huggingface_hub: Model uploading and sharing.
 
-## Fine-Tuning Processes
-1. DoRA Fine-Tuning (LLaMA-3.1-8B-Instruct)
+### Fine-Tuning Processes
+## 1. DoRA Fine-Tuning (LLaMA-3.1-8B-Instruct)
 
 Model: devatar/quantized_Llama-3.1-8B-Instruct (quantized).
 Dataset: FineTome-100k (100,000 conversation samples).
@@ -59,7 +59,7 @@ Optimized for T4 GPU in Google Colab.
 
 
 
-2. GRPO Fine-Tuning (LLaMA-3.1-8B-Instruct)
+## 2. GRPO Fine-Tuning (LLaMA-3.1-8B-Instruct)
 
 Model: devatar/quantized_Llama-3.1-8B-Instruct (4-bit quantized).
 Dataset: Anthropic HH-RLHF (subset of 1,000 samples).
@@ -84,7 +84,7 @@ Gradient checkpointing via Unsloth for memory efficiency.
 
 
 
-3. LoRA Fine-Tuning (Dolly-V2-3B)
+## 3. LoRA Fine-Tuning (Dolly-V2-3B)
 
 Model: databricks/dolly-v2-3b (3 billion parameters, 8-bit quantized).
 Dataset: LaMini-instruction (subset of 200 samples).
@@ -107,13 +107,13 @@ Optimized for instruction-following tasks.
 Suitable for deployment in chatbots or content generation tools.
 
 
-Accessing Fine-Tuned Models
+## Accessing Fine-Tuned Models
 
 DoRA Model: Available at Hugging Face.
 GRPO Model: Saved locally as ./fine_tuned_llama31_8b.
 LoRA Model: Available at Hugging Face.
 
-Example Inference
+## Example Inference
 To perform inference with the fine-tuned models:
 from transformers import AutoTokenizer, AutoModelForCausalLM
 model_name = "avinashhm/llama-3.1-8b-dora-finetuned"
@@ -124,14 +124,14 @@ inputs = tokenizer(input_text, return_tensors="pt").to("cuda")
 outputs = model.generate(**inputs, max_length=100)
 print(tokenizer.decode(outputs[0], skip_special_tokens=True))
 
-Future Improvements
+## Future Improvements
 
 Hyperparameter Tuning: Experiment with different ranks (r), lora_alpha, and learning rates.
 Larger Datasets: Use full datasets (e.g., FineTome-100k or HH-RLHF) with more computational resources.
 Evaluation Metrics: Add quantitative evaluation steps to measure model performance post-fine-tuning.
 Cross-Model Comparison: Compare DoRA, GRPO, and LoRA performance on the same dataset.
 
-Conclusion
+## Conclusion
 This repository provides a comprehensive pipeline for fine-tuning large language models using parameter-efficient methods. The code is optimized for memory-constrained environments and is suitable for researchers and practitioners looking to adapt LLMs for specific tasks.
 License
 This project is licensed under the MIT License. See the LICENSE file for details.
